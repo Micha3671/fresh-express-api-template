@@ -22,7 +22,7 @@ TodosRouter.get("/byid", (req, res) => {
 
 // /v1/todos/all
 TodosRouter.get("/all", (req, res) => {
-  res.status(StatusCodes.OK).json(todos);
+  res.status(StatusCodes.OK).send(todos);
 });
 
 TodosRouter.post("/byuserid", (req, res) => {
