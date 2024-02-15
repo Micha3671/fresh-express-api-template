@@ -3,6 +3,12 @@ const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const TodosRouter = Router();
 
+const todos = [
+  { id: 1, todo: "Staubsaugen" },
+  { id: 2, todo: "Wäsche waschen" },
+  { id: 3, todo: "mit Hund spazieren" },
+];
+
 // GET REQUESTS
 // /v1/todos/byid
 TodosRouter.get("/byid", (req, res) => {
@@ -12,6 +18,11 @@ TodosRouter.get("/byid", (req, res) => {
     return;
   }
   res.status(StatusCodes.OK).send("Get Todo by id");
+});
+
+// /v1/todos/all
+TodosRouter.get("/all", (req, res) => {
+  res.status(StatusCodes.OK).json(todos);
 });
 
 TodosRouter.post("/byuserid", (req, res) => {
